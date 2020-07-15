@@ -1,0 +1,9 @@
+[submodule "rate-my-bistro"]
+	path = rate-my-bistro
+	url = https://github.com/ansgarS/rate-my-bistro
+[submodule "rate-my-bistro-crawler"]
+	path = rate-my-bistro-crawler
+	url = https://github.com/ansgarS/rate-my-bistro-crawler
+[submodule "rate-my-bistro-server"]
+	path = rate-my-bistro-server
+	url = https://github.com/ansgarS/rate-my-bistro-server
