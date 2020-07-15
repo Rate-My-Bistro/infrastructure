@@ -1,2 +1,3 @@
-# rate-my-bistro-infrastructure
+# Rate my Bistro: Infrastructure
+
 Describes the infrastructure for the Rate my Bistro App
