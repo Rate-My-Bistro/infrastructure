@@ -1,9 +1,12 @@
 [submodule "rate-my-bistro"]
 	path = rate-my-bistro
 	url = git@github.com:ansgarS/rate-my-bistro.git
+    branch = master
 [submodule "rate-my-bistro-crawler"]
 	path = rate-my-bistro-crawler
 	url = git@github.com:ansgarS/rate-my-bistro-crawler.git
+	branch = master
 [submodule "rate-my-bistro-server"]
 	path = rate-my-bistro-server
 	url = git@github.com:ansgarS/rate-my-bistro-server.git
+	branch = master
