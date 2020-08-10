@@ -11,6 +11,7 @@ users.grantDatabase(process.env.ARANGO_DB_USER, process.env.ARANGO_DB_NAME);
 db._useDatabase(process.env.ARANGO_DB_NAME);
 // Create collections
 db._create('menus');
+db._create('jobs');
 
 
 // Create mock data
