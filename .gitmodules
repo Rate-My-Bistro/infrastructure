@@ -10,3 +10,6 @@
 	path = rate-my-bistro-server
 	url = git@github.com:ansgarS/rate-my-bistro-server.git
 	branch = master
+[submodule "rate-my-bistro-control"]
+	path = rate-my-bistro-control
+	url = https://github.com/ansgarS/rate-my-bistro-control
