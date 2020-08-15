@@ -4,6 +4,13 @@ services:
     crawler:
         build:
             context: rate-my-bistro-crawler
+        env_file:
+            - rate-my-bistro-crawler/.env.example
+        environment:
+            - DATABASE_ADDRESS=http://database:8529
+            - GIN_MODE=release
+        depends_on:
+            - database
 
     server:
         build:
