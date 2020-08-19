@@ -11,6 +11,8 @@ services:
             - GIN_MODE=release
         depends_on:
             - database
+        ports:
+            - "7331:7331"
 
     server:
         build:
