@@ -8,6 +8,7 @@ services:
             - rate-my-bistro-crawler/.env.example
         environment:
             - DATABASE_ADDRESS=http://database:8529
+            - SWAGGER_API_DOC_LOCATION=swagger.json
             - GIN_MODE=release
         depends_on:
             - database
