@@ -3,9 +3,9 @@ version: "3.7"
 services:
     crawler:
         build:
-            context: rate-my-bistro-crawler
+            context: crawler
         env_file:
-            - rate-my-bistro-crawler/.env.example
+            - crawler/.env.example
         environment:
             - DATABASE_ADDRESS=http://database:8529
             - SWAGGER_API_DOC_LOCATION=swagger.json
@@ -17,11 +17,11 @@ services:
 
     server:
         build:
-            context: rate-my-bistro-server
+            context: server
 
     database:
         build:
-            context: rate-my-bistro-database
+            context: database
         ports:
             - "8529:8529"
         environment:
