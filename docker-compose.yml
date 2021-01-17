@@ -25,8 +25,7 @@ services:
         ports:
             - "8529:8529"
         environment:
-            - ARANGO_NO_AUTH=0
-            - ARANGO_ROOT_PASSWORD=iamroot
+            - ARANGO_RANDOM_ROOT_PASSWORD=1
             - ARANGO_DB_NAME=bistro
             - ARANGO_DB_USER=bistrouser
             - ARANGO_DB_PASSWORD=bistropassword

@@ -1,19 +1,18 @@
-// Create database
-db._createDatabase(process.env.ARANGO_DB_NAME);
-
-
-// Add a user
+// Add the bistro user
 var users = require("@arangodb/users");
-users.save(process.env.ARANGO_DB_USER, process.env.ARANGO_DB_PASSWORD);
-users.grantDatabase(process.env.ARANGO_DB_USER, process.env.ARANGO_DB_NAME);
+users.update("root", process.env.ARANGO_DB_ROOT_PASSWORD);
+users.save(process.env.ARANGO_DB_USER, process.env.ARANGO_DB_PASSWORD, true);
 
-
+// Create database and grant access for the bistro user
+db._createDatabase(process.env.ARANGO_DB_NAME);
 db._useDatabase(process.env.ARANGO_DB_NAME);
-// Create collections
+users.grantDatabase(process.env.ARANGO_DB_USER, process.env.ARANGO_DB_NAME, 'rw');
+
+
+// Create menu collection and grant access for the bistro user
 db._create('menus');
+users.grantCollection(process.env.ARANGO_DB_USER, process.env.ARANGO_DB_NAME, 'menus', 'rw');
+
+// Create job collection and grant access for the bistro user
 db._create('jobs');
-
-
-// Create mock data
-db.menus.save({ id: '1', served_at: '2020-10-10', name: 'Chili Noodles', image: 'http://image-provider.cdn/chili.png', price: { value: 7.99, currency: 'EUR' }, optionalSupplements: [{ name: 'Salad', price: { value: 2.99, currency: 'EUR' }}], manadatorySupplements: [{ name: 'Salad', price: { value: 2.99, currency: 'EUR' }}] });
-db.menus.save({ id: '2', served_at: '2020-10-11', name: 'Tomato Noodles', image: 'http://image-provider.cdn/tomato.png', price: { value: 5.99, currency: 'EUR' }, optionalSupplements: [{ name: 'Fries', price: { value: 3.99, currency: 'EUR' }}], manadatorySupplements: [{ name: 'Salad', price: { value: 2.99, currency: 'EUR' }}] });
+users.grantCollection(process.env.ARANGO_DB_USER, process.env.ARANGO_DB_NAME, 'jobs', 'rw');
