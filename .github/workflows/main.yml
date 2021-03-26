@@ -15,9 +15,15 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Github Tag Bump
+        id: version_bump
+        uses: anothrNick/github-tag-action@1.34.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
       - name: Push to ghcr.io
         uses: docker/build-push-action@v2
         with:
           push: true
           context: database
-          tags: ghcr.io/rate-my-bistro/database:latest
+          tags: ghcr.io/rate-my-bistro/database:latest, ghcr.io/rate-my-bistro/database:${{ steps.version_bump.outputs.new_tag }} 
