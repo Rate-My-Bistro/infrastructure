@@ -7,6 +7,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      release_tag: ${{steps.version_bump.new_tag}}
     steps:
       - name: Github Tag Bump
         id: version_bump
@@ -30,4 +32,4 @@ jobs:
         with:
           push: true
           context: database
-          tags: ghcr.io/rate-my-bistro/database:latest, ghcr.io/rate-my-bistro/database:${{needs.release.outputs.new_tag}}
+          tags: ghcr.io/rate-my-bistro/database:latest, ghcr.io/rate-my-bistro/database:${{needs.release.outputs.release_tag}}
